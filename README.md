@@ -20,7 +20,7 @@ cd examples
 ## Run with Docker & Docker Compose
 
 ```
-docker build -t autom-studio/webdavd:v0.0.1
+docker build -t autom-studio/webdavd:v0.0.1 .
 mkdir -p ./data
 mkdir -p ./conf
 cp examples/webdavd.yaml.example conf/webdavd.yaml
