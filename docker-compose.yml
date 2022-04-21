@@ -1,0 +1,12 @@
+---
+version: '3.9'
+
+services:
+  webdavd:
+    image: autom-studio/webdavd:v0.0.1
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./conf/webdavd.yaml:/app/webdavd.yaml
+      - ./data:/data
