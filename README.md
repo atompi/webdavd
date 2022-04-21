@@ -21,13 +21,20 @@ cd examples
 
 ```
 docker build -t autom-studio/webdavd:v0.0.1 .
-mkdir -p ./data
+mkdir -p ./data/webdav
 mkdir -p ./conf
 cp examples/webdavd.yaml.example conf/webdavd.yaml
 docker-compose up -d
 ```
 
 ## PS.
+
++ Creating directory via curl
+
+```
+# prefix path (/dir1) mush already exist
+curl --user admin:123123 -XMKCOL http://192.168.15.128:8080/dir1/dir2
+```
 
 + Uploading files via curl
 
