@@ -28,7 +28,10 @@ func DirListHandler(fs webdav.FileSystem, w http.ResponseWriter, r *http.Request
 		return false
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintf(w, "<h1>Index of %s</h1>\n", r.URL.Path)
+	fmt.Fprintf(w, "<hr>\n")
 	fmt.Fprintf(w, "<pre>\n")
+	fmt.Fprintf(w, "<a href=\"../\">../</a>\n")
 	for _, d := range dirs {
 		name := d.Name()
 		if d.IsDir() {
@@ -37,6 +40,7 @@ func DirListHandler(fs webdav.FileSystem, w http.ResponseWriter, r *http.Request
 		fmt.Fprintf(w, "<a href=\"%s\">%s</a>\n", name, name)
 	}
 	fmt.Fprintf(w, "</pre>\n")
+	fmt.Fprintf(w, "<hr>\n")
 	return true
 }
 
